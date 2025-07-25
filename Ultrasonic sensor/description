@@ -10,7 +10,7 @@ The Arduino calculates the time taken for the echo to return and uses it to comp
 
 The measured distance is then printed on the Serial Monitor.
 
-Connections:
+##Connections:
 
 VCC → 5V (Power supply)
 
@@ -20,5 +20,5 @@ Trig → Digital Pin 11 (Output)
 
 Echo → Digital Pin 10 (Input)
 
-Working Principle:
+##Working Principle:
 The sensor sends an ultrasonic sound wave when the trigger pin is activated. It waits for the wave to bounce back and calculates the time taken for the round trip. Using the speed of sound, it then computes the distance to the object.
