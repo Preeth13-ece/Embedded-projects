@@ -60,5 +60,7 @@
     [ "esp:21", "lcd1:SDA", "green", [ "h9.6", "v28.8" ] ],
     [ "lcd1:SCL", "esp:22", "green", [ "h-38.4", "v-57.3" ] ]
   ],
-  "dependencies": {}
+  "dependencies": {
+    "DHTesp": "latest"
+  }
 }
