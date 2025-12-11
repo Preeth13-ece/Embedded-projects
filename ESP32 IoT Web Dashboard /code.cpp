@@ -1,4 +1,6 @@
 #include "DHTesp.h"
+#include <Wire.h>
+#include <LiquidCrystal_I2C.h>
 
 const int DHT_pin=15;
 const int redLED = 12;
@@ -6,6 +8,7 @@ const int yellowLED = 13;
 const int greenLED = 27;
 const int buzzer = 14;
 DHTesp dht;
+LiquidCrystal_I2C lcd(0x27, 16, 2);
 
 void setup(){
   Serial.begin(115200);
@@ -14,6 +17,12 @@ void setup(){
   pinMode(yellowLED, OUTPUT);
   pinMode(greenLED, OUTPUT);
   pinMode(buzzer, OUTPUT);
+  lcd.init();
+  lcd.backlight();
+  lcd.setCursor(0, 0);
+  lcd.print("System Ready");
+  delay(1000);
+  lcd.clear();
 }
 
 void loop(){
@@ -43,4 +52,14 @@ void loop(){
   else {
   digitalWrite(greenLED, HIGH);
  }
+ lcd.clear();
+ lcd.setCursor(0, 0);
+ lcd.print("Temp: ");
+ lcd.print(data.temperature);
+ lcd.print(" C");
+
+ lcd.setCursor(0, 1);
+ lcd.print("Hum: ");
+ lcd.print(data.humidity);
+ lcd.print(" %");
 }
